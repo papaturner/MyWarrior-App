@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- brand colors -->
+    <color name="brand_yellow_light">#FFFCD9</color>
+    <color name="brand_yellow">#F5E339</color>
+    <color name="brand_yellow_dark">#C4B62E</color>
+    <color name="brand_gold">#FFD700</color>
+    <color name="brand_brown">#2F2B00</color>
+    
+    <!-- primary colors -->
+    <color name="primary_blue">#1A237E</color>
+    <color name="primary_blue_light">#283593</color>
+    <color name="primary_blue_dark">#0D1442</color>
+    
+    <!-- secondary colors -->
+    <color name="secondary_red">#C62828</color>
+    <color name="secondary_red_dark">#8B0000</color>
+    <color name="secondary_green">#2E7D32</color>
+    <color name="secondary_green_dark">#1B5E20</color>
+    
+    <!-- accent colors -->
+    <color name="accent_pink">#E91E63</color>
+    <color name="accent_purple">#9C27B0</color>
+    <color name="accent_purple_dark">#4A148C</color>
+    
+    <!-- ui colors -->
+    <color name="background_dark">#1A1A2E</color>
+    <color name="background_medium">#16213E</color>
+    <color name="card_background">#2A2A4A</color>
+    <color name="card_background_light">#3A3A5A</color>
+    
+    <!-- text colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_gold">#FFD700</color>
+    <color name="text_dark">#111100</color>
+    
+    <!-- button colors -->
+    <color name="button_primary">#F5E339</color>
+    <color name="button_secondary">#7CB342</color>
+    <color name="button_danger">#C62828</color>
+    <color name="button_info">#00ACC1</color>
+    
+    <!-- class colors -->
+    <color name="class_warrior">#FF5722</color>
+    <color name="class_mage">#3F51B5</color>
+    <color name="class_ninja">#9C27B0</color>
+    <color name="class_paladin">#FFD700</color>
+    <color name="class_ranger">#4CAF50</color>
+    <color name="class_monk">#FF9800</color>
+    
+    <!-- element colors -->
+    <color name="element_fire">#FF5722</color>
+    <color name="element_ice">#03A9F4</color>
+    <color name="element_lightning">#FFEB3B</color>
+    <color name="element_earth">#795548</color>
+    <color name="element_dark">#4A148C</color>
+    <color name="element_light">#FFF9C4</color>
+    
+    <!-- status colors -->
+    <color name="health_full">#4CAF50</color>
+    <color name="health_medium">#FFC107</color>
+    <color name="health_low">#F44336</color>
+    <color name="mana_blue">#2196F3</color>
+    <color name="xp_purple">#9C27B0</color>
+    
+    <!-- leaderboard colors -->
+    <color name="rank_gold">#FFD700</color>
+    <color name="rank_silver">#C0C0C0</color>
+    <color name="rank_bronze">#CD7F32</color>
+    
+    <!-- android colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
 </resources>

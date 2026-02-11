@@ -1,3 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MyWarriors</string>
+    <string name="app_name">Fitness Warrior</string>
+    
+    <!-- onboarding -->
+    <string name="welcome_title">Welcome to\nMyWarrior</string>
+    <string name="welcome_subtitle">Power up your Warrior with real world workouts and battle the evil creatures</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    
+    <!-- main menu -->
+    <string name="welcome_warrior">WELCOME WARRIOR</string>
+    <string name="todays_quests">TODAY\'S QUESTS</string>
+    <string name="streak_days">STREAK: %d DAYS</string>
+    
+    <!-- character -->
+    <string name="stats">STATS</string>
+    <string name="str">STR: %d</string>
+    <string name="agi">AGI: %d</string>
+    <string name="int_stat">INT: %d</string>
+    <string name="def">DEF: %d</string>
+    <string name="open_armory">OPEN ARMORY</string>
+    <string name="class_change">CLASS CHANGE</string>
+    <string name="hp_format">%d HP</string>
+    <string name="lvl_format">LVL %d %s</string>
+    
+    <!-- armory -->
+    <string name="ye_olde_armory">YE OLDE ARMORY</string>
+    <string name="potions">POTIONS</string>
+    <string name="shields">SHIELDS</string>
+    <string name="weapons">WEAPONS</string>
+    
+    <!-- battle -->
+    <string name="attack">ATTACK</string>
+    <string name="heal">HEAL</string>
+    <string name="run">RUN</string>
+    <string name="skills">SKILLS</string>
+    <string name="defend">DEFEND</string>
+    <string name="items">ITEMS</string>
+    <string name="enemy_hp">ENEMY HP: %d</string>
+    
+    <!-- world map -->
+    <string name="world_title">WORLD 1: CURSED REALM</string>
+    <string name="castle_ruins">1. Castle Ruins</string>
+    <string name="forest_path">2. Forest Path</string>
+    <string name="bridge_guard">3. Bridge Guard</string>
+    <string name="dragons_peak">4. Dragon\'s Peak</string>
+    
+    <!-- leaderboard -->
+    <string name="weekly_champions">Weekly Champions</string>
+    <string name="champions">CHAMPIONS</string>
+    <string name="main_menu">MAIN MENU</string>
+    <string name="steps_format">%,d Steps</string>
+    <string name="victory_achieved">Victory Achieved!</string>
+    
+    <!-- settings -->
+    <string name="settings">Settings</string>
+    <string name="game_audio">Game audio</string>
+    <string name="blood_effects">blood effects</string>
+    <string name="location_settings">Location Settings</string>
+    <string name="allow">Allow</string>
+    <string name="dont_allow">Don\'t allow</string>
+    <string name="logout">LOGOUT</string>
+    <string name="location_off">Location is off, Enable location for accurate fitness tracking</string>
+    
+    <!-- body stats -->
+    <string name="weight_format">Weight: %d lbs</string>
+    <string name="height_format">Height: %s</string>
+    <string name="waist_format">Waist Circumference: %d in</string>
+    <string name="calories_today">Calories burned today:</string>
+    <string name="steps_today">STEPS TODAY:</string>
+    
+    <!-- completion -->
+    <string name="objective_complete">Objective Complete</string>
+    <string name="reward_format">+%d⚡</string>
+    <string name="shop">SHOP</string>
+    <string name="continue_adventure">Continue adventure</string>
+    <string name="tap_to_fight">Tap to Fight</string>
+    <string name="tap_to_continue">Tap to Continue</string>
+    <string name="tap_to_restart">Tap to Restart</string>
+    
+    <!-- navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_character">Character</string>
+    <string name="nav_battle">Battle</string>
+    <string name="nav_settings">Settings</string>
 </resources>
