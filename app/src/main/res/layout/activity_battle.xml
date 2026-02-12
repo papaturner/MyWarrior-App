@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient">
+
+    <!-- enemy section -->
+    <TextView
+        android:id="@+id/tvEnemyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SLOTH KING"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:ellipsize="end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- enemy hp -->
+    <ProgressBar
+        android:id="@+id/pbEnemyHp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="280dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:max="1500"
+        android:progress="1500"
+        android:progressDrawable="@drawable/health_bar"
+        app:layout_constraintTop_toBottomOf="@id/tvEnemyName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvEnemyHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP: 1500/1500"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/pbEnemyHp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- enemy image -->
+    <FrameLayout
+        android:id="@+id/enemyFrame"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/card_background"
+        app:layout_constraintTop_toBottomOf="@id/tvEnemyHP"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvEnemyEmoji"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="🦥"
+            android:textSize="100sp"
+            android:gravity="center"/>
+    </FrameLayout>
+
+    <!-- battle log -->
+    <ScrollView
+        android:id="@+id/scrollBattleLog"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/card_background"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/enemyFrame">
+
+        <TextView
+            android:id="@+id/tvBattleLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚔️ Battle Start!"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:lineSpacingExtra="4dp"/>
+    </ScrollView>
+
+    <!-- player stats -->
+    <LinearLayout
+        android:id="@+id/playerStatsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/card_background"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/scrollBattleLog">
+
+        <TextView
+            android:id="@+id/tvPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero"
+            android:textColor="@color/text_gold"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvPlayerHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HP: 100/100"
+                android:textColor="@color/health_full"
+                android:textSize="14sp"/>
+
+            <ProgressBar
+                android:id="@+id/pbPlayerHp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/health_bar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tvPlayerMp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MP: 50/50"
+                android:textColor="@color/mana_blue"
+                android:textSize="14sp"/>
+
+            <ProgressBar
+                android:id="@+id/pbPlayerMp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:max="50"
+                android:progress="50"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- battle actions -->
+    <LinearLayout
+        android:id="@+id/actionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- top row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <Button
+                android:id="@+id/btnAttack"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="⚔️ ATK"
+                android:textColor="@color/text_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                style="@style/PrimaryButton"/>
+
+            <Button
+                android:id="@+id/btnSkills"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="✨ SKILL"
+                android:textColor="@color/text_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                style="@style/PrimaryButton"/>
+
+            <Button
+                android:id="@+id/btnHeal"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="💚 HEAL"
+                android:textColor="@color/text_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                style="@style/PrimaryButton"/>
+        </LinearLayout>
+
+        <!-- bottom row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDefend"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="🛡️ GUARD"
+                android:textColor="@color/text_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                style="@style/PrimaryButton"/>
+
+            <Button
+                android:id="@+id/btnRun"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:text="🏃 RUN"
+                android:textColor="@color/text_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                style="@style/PrimaryButton"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
