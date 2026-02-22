@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#2E7D32"
+    android:padding="24dp">
+
+    <!-- banner -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VICTORY!"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/btn_primary"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- chest -->
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:background="@drawable/card_background"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="🏆"
+            android:textSize="120sp"
+            android:gravity="center"/>
+    </FrameLayout>
+
+    <!-- rewards -->
+    <TextView
+        android:id="@+id/tvReward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+150 XP  +50⚡"
+        android:textColor="#1A1A00"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:background="@drawable/btn_primary"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- shop button -->
+    <Button
+        android:id="@+id/btnShop"
+        android:layout_width="240dp"
+        android:layout_height="52dp"
+        android:text="⚔️ VISIT ARMORY"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_secondary"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- continue button -->
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="CONTINUE ADVENTURE"
+        android:textColor="#1A1A00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        style="@style/PrimaryButton"/>
+</LinearLayout>
