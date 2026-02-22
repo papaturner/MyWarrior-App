@@ -54,6 +54,11 @@
             android:name=".ui.ArmoryActivity"
             android:exported="false" />
         
+        <!-- shop list -->
+        <activity
+            android:name=".ui.ShopListActivity"
+            android:exported="false" />
+        
         <!-- world map -->
         <activity
             android:name=".ui.WorldMapActivity"
