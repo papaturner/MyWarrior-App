@@ -336,6 +336,13 @@ class BattleSystem(
 
     // enemy ai section
 
+    // called when enemy goes first at battle start
+    fun executeInitialEnemyTurn() {
+        if (currentTurn == Turn.ENEMY && battleState == BattleState.ONGOING) {
+            executeEnemyTurn()
+        }
+    }
+
     private fun executeEnemyTurn() {
         if (!canAct(enemy)) { processEndOfTurn(); return }
         val action = determineEnemyAction()

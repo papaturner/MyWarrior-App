@@ -73,6 +73,17 @@ class BattleActivity : AppCompatActivity() {
 
         tvEnemyName.text = enemyParticipant.name
         tvEnemyEmoji.text = getEnemyEmoji(enemyId)
+
+        // if the enemy is faster they get the first turn
+        if (battleSystem?.currentTurn == Turn.ENEMY) {
+            addToLog("${enemyParticipant.name} strikes first!")
+            disableActions()
+            handler.postDelayed({
+                battleSystem?.executeInitialEnemyTurn()
+                updateUI()
+                enableActions()
+            }, 800)
+        }
     }
 
     private fun getEnemyForLevel(level: Int): String = when (level) {
