@@ -91,14 +91,40 @@ class BattleActivity : AppCompatActivity() {
         else -> "👾"
     }
 
+    // get meter speed based on enemy level, harder enemies are faster
+    private fun getMeterSpeed(): Long {
+        val level = battleSystem?.enemyLevel ?: 1
+        return when {
+            level >= 20 -> 400L
+            level >= 15 -> 500L
+            level >= 10 -> 600L
+            level >= 5 -> 700L
+            else -> 850L
+        }
+    }
+
+    // show the attack meter dialog then apply the result
+    private fun showAttackMeter(attackName: String, onResult: (Float) -> Unit) {
+        val meter = AttackMeterDialog(this) { label, multiplier ->
+            addToLog("⏱️ $label (${multiplier}x)")
+            onResult(multiplier)
+        }
+        meter.sweepSpeed = getMeterSpeed()
+        meter.show(attackName)
+    }
+
     // player actions section
 
     private fun onAttackClicked() {
         if (battleSystem?.currentTurn != Turn.PLAYER) return
         disableActions()
-        val result = battleSystem?.playerAttack()
-        result?.let { addToLog(it.message) }
-        handler.postDelayed({ updateUI(); enableActions() }, 500)
+
+        // show meter then apply damage with multiplier
+        showAttackMeter("⚔️ Basic Attack") { multiplier ->
+            val result = battleSystem?.playerAttackWithMultiplier(multiplier)
+            result?.let { addToLog(it.message) }
+            handler.postDelayed({ updateUI(); enableActions() }, 500)
+        }
     }
 
     private fun onSkillsClicked() {
@@ -206,9 +232,19 @@ class BattleActivity : AppCompatActivity() {
             .setItems(skillNames) { _, which ->
                 val skill = skills[which]
                 disableActions()
-                val result = battleSystem?.playerUseSkill(skill)
-                result?.let { addToLog(it.message) }
-                handler.postDelayed({ updateUI(); enableActions() }, 500)
+
+                // damage skills use the meter, others go straight through
+                if (skill.type == SkillType.DAMAGE) {
+                    showAttackMeter("✨ ${skill.name}") { multiplier ->
+                        val result = battleSystem?.playerUseSkillWithMultiplier(skill, multiplier)
+                        result?.let { addToLog(it.message) }
+                        handler.postDelayed({ updateUI(); enableActions() }, 500)
+                    }
+                } else {
+                    val result = battleSystem?.playerUseSkill(skill)
+                    result?.let { addToLog(it.message) }
+                    handler.postDelayed({ updateUI(); enableActions() }, 500)
+                }
             }
             .setNegativeButton("Cancel", null)
             .show()

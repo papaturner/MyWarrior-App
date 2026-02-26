@@ -23,6 +23,7 @@ class BattleSystem(
     val enemyXpReward: Int get() = enemy.xpReward
     val enemyGoldReward: Int get() = enemy.goldReward
     val enemyName: String get() = enemy.name
+    val enemyLevel: Int get() = enemy.level
 
     init {
         battleLog.add(BattleMessage("⚔️ Battle Start!", MessageType.SYSTEM))
@@ -41,6 +42,16 @@ class BattleSystem(
         return result
     }
 
+    // attack with meter multiplier instead of random crit
+    fun playerAttackWithMultiplier(multiplier: Float): BattleActionResult {
+        if (currentTurn != Turn.PLAYER || battleState != BattleState.ONGOING)
+            return BattleActionResult(false, "Not your turn!")
+        playerDefending = false
+        val result = performAttackWithMeter(player, enemy, player.basicAttack, multiplier)
+        processEndOfTurn()
+        return result
+    }
+
     fun playerUseSkill(skill: Skill): BattleActionResult {
         if (currentTurn != Turn.PLAYER || battleState != BattleState.ONGOING)
             return BattleActionResult(false, "Not your turn!")
@@ -50,6 +61,25 @@ class BattleSystem(
         player.currentMp -= skill.mpCost
         val result = when (skill.type) {
             SkillType.DAMAGE -> performAttack(player, enemy, skill)
+            SkillType.HEAL -> performHeal(player, skill)
+            SkillType.BUFF -> applyBuff(player, skill)
+            SkillType.DEBUFF -> applyDebuff(enemy, skill)
+            SkillType.STATUS -> applyStatusEffect(enemy, skill)
+        }
+        processEndOfTurn()
+        return result
+    }
+
+    // skill attack with meter multiplier instead of random crit
+    fun playerUseSkillWithMultiplier(skill: Skill, multiplier: Float): BattleActionResult {
+        if (currentTurn != Turn.PLAYER || battleState != BattleState.ONGOING)
+            return BattleActionResult(false, "Not your turn!")
+        if (player.currentMp < skill.mpCost)
+            return BattleActionResult(false, "Not enough MP! Need ${skill.mpCost}, have ${player.currentMp}")
+        playerDefending = false
+        player.currentMp -= skill.mpCost
+        val result = when (skill.type) {
+            SkillType.DAMAGE -> performAttackWithMeter(player, enemy, skill, multiplier)
             SkillType.HEAL -> performHeal(player, skill)
             SkillType.BUFF -> applyBuff(player, skill)
             SkillType.DEBUFF -> applyDebuff(enemy, skill)
@@ -121,6 +151,40 @@ class BattleSystem(
         battleLog.add(BattleMessage(dmgMsg, if (attacker == player) MessageType.PLAYER_ACTION else MessageType.ENEMY_ACTION))
         battleLog.add(BattleMessage(effMsg, MessageType.DAMAGE))
         onBattleEvent?.invoke(BattleEvent.Damage(attacker == player, damage, skill.element))
+        if (skill.statusEffect != null && Random.nextInt(100) < skill.statusChance) applyStatus(defender, skill.statusEffect!!)
+        if (defender.currentHp <= 0) handleKO(defender)
+        return BattleActionResult(true, "$dmgMsg $effMsg", damage, isCritical)
+    }
+
+    // attack using the meter multiplier from the player timing
+    private fun performAttackWithMeter(attacker: BattleParticipant, defender: BattleParticipant, skill: Skill, meterMultiplier: Float): BattleActionResult {
+        // meter replaces accuracy and crit, the player controls the outcome
+        var damage = calculateDamage(attacker, defender, skill)
+
+        // apply defending reduction
+        if ((defender == player && playerDefending) || (defender == enemy && enemyDefending)) {
+            damage = (damage * 0.5).roundToInt()
+            battleLog.add(BattleMessage("${defender.name}'s guard reduced the damage!", MessageType.SYSTEM))
+        }
+
+        // apply the meter multiplier instead of random crit
+        damage = (damage * meterMultiplier).roundToInt()
+        val isCritical = meterMultiplier >= 3.0f
+
+        if (isCritical) {
+            battleLog.add(BattleMessage("💥 CRITICAL HIT!", MessageType.CRITICAL))
+            onBattleEvent?.invoke(BattleEvent.CriticalHit(attacker == player))
+        } else if (meterMultiplier <= 0.5f) {
+            battleLog.add(BattleMessage("Weak hit...", MessageType.SYSTEM))
+        }
+
+        damage = damage.coerceAtLeast(1)
+        defender.currentHp = max(0, defender.currentHp - damage)
+        val dmgMsg = "${attacker.name} uses ${skill.name}! ${skill.element.emoji}"
+        val effMsg = "Dealt $damage damage to ${defender.name}!"
+        battleLog.add(BattleMessage(dmgMsg, MessageType.PLAYER_ACTION))
+        battleLog.add(BattleMessage(effMsg, MessageType.DAMAGE))
+        onBattleEvent?.invoke(BattleEvent.Damage(true, damage, skill.element))
         if (skill.statusEffect != null && Random.nextInt(100) < skill.statusChance) applyStatus(defender, skill.statusEffect!!)
         if (defender.currentHp <= 0) handleKO(defender)
         return BattleActionResult(true, "$dmgMsg $effMsg", damage, isCritical)
