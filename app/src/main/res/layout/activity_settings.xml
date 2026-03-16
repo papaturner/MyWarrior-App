@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ SETTINGS"
+            android:textColor="@color/text_gold"
+            android:textSize="28sp"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- profile card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FITNESS PROFILE"
+                android:textColor="@color/text_gold"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvFitnessProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading fitness profile..."
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"/>
+
+            <Button
+                android:id="@+id/btnRetakeQuestionnaire"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="RETAKE QUESTIONNAIRE"
+                android:textColor="#1A1A00"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_primary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- audio toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔊 Game Audio"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/switchAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumbTint="@color/brand_yellow"
+                android:trackTint="@color/card_background_light"/>
+        </LinearLayout>
+
+        <!-- effects toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🩸 Blood Effects"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/switchBlood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:thumbTint="@color/secondary_red"
+                android:trackTint="@color/card_background_light"/>
+        </LinearLayout>
+
+        <!-- location card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Location Settings"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location is off. Enable for accurate fitness tracking."
+                android:textColor="#B0B0B0"
+                android:textSize="13sp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnAllowLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="ALLOW"
+                    android:textColor="#1A1A00"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_primary"
+                    app:backgroundTint="@null"/>
+
+                <Button
+                    android:id="@+id/btnDenyLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="DON'T ALLOW"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_secondary"
+                    app:backgroundTint="@null"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- app info -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fitness Warrior v1.0"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- logout -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="LOGOUT"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_secondary"
+            app:backgroundTint="@null"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- delete data -->
+        <Button
+            android:id="@+id/btnDeleteAllData"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="DELETE ALL DATA"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_danger"
+            app:backgroundTint="@null"
+            android:layout_marginBottom="80dp"/>
+    </LinearLayout>
+</ScrollView>

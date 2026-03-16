@@ -1,27 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyWarriors">
+        android:theme="@style/Theme.FitnessWarrior">
+        
+        <!-- splash -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MyWarriors">
+            android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- onboarding -->
+        <activity
+            android:name=".ui.OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Golden" />
+        
+        <!-- questionnaire -->
+        <activity
+            android:name=".ui.QuestionnaireActivity"
+            android:exported="false" />
+        
+        <!-- fitness questionnaire -->
+        <activity
+            android:name=".ui.FitnessQuestionnaireActivity"
+            android:exported="false" />
+        
+        <!-- main -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+        
+        <!-- character -->
+        <activity
+            android:name=".ui.CharacterActivity"
+            android:exported="false" />
+        
+        <!-- armory -->
+        <activity
+            android:name=".ui.ArmoryActivity"
+            android:exported="false" />
+        
+        <!-- shop list -->
+        <activity
+            android:name=".ui.ShopListActivity"
+            android:exported="false" />
+        
+        <!-- world map -->
+        <activity
+            android:name=".ui.WorldMapActivity"
+            android:exported="false" />
+        
+        <!-- battle -->
+        <activity
+            android:name=".ui.BattleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <!-- settings -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+        
+        <!-- leaderboard -->
+        <activity
+            android:name=".ui.LeaderboardActivity"
+            android:exported="false" />
+        
+        <!-- quest detail -->
+        <activity
+            android:name=".ui.QuestDetailActivity"
+            android:exported="false" />
+        
+        <!-- victory -->
+        <activity
+            android:name=".ui.VictoryActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

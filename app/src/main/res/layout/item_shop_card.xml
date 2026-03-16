@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- single shop grid cell -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shop_grid_cell"
+    android:layout_margin="4dp"
+    android:padding="8dp"
+    android:gravity="center_horizontal">
+
+    <!-- item name at top -->
+    <TextView
+        android:id="@+id/tvItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Potion"
+        android:textColor="@color/text_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+    <!-- big emoji icon centered -->
+    <TextView
+        android:id="@+id/tvEmoji"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:text="🧪"
+        android:textSize="36sp"
+        android:gravity="center"
+        android:layout_marginTop="4dp"/>
+
+    <!-- rarity stars -->
+    <TextView
+        android:id="@+id/tvRarity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="★"
+        android:textSize="10sp"
+        android:textColor="#808080"
+        android:gravity="center"
+        android:layout_marginTop="2dp"/>
+
+    <!-- stats line -->
+    <TextView
+        android:id="@+id/tvStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+3 STR"
+        android:textColor="@color/text_secondary"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:layout_marginTop="2dp"/>
+
+    <!-- price bubble -->
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30 ⚡"
+        android:textColor="@color/text_gold"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:background="@drawable/price_bubble"
+        android:gravity="center"
+        android:layout_marginTop="4dp"/>
+
+    <!-- owned count for potions -->
+    <TextView
+        android:id="@+id/tvOwned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x0"
+        android:textColor="@color/text_secondary"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="2dp"/>
+
+    <!-- buy or status button -->
+    <TextView
+        android:id="@+id/btnAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BUY"
+        android:textColor="#1A1A2E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_buy"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:paddingVertical="6dp"/>
+
+</LinearLayout>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚔️ WARRIOR PROFILE ⚔️"
+            android:textColor="@color/text_gold"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- progress -->
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 1 of 5"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- step title -->
+        <TextView
+            android:id="@+id/tvStepTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How tall are you?"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- step description -->
+        <TextView
+            android:id="@+id/tvStepDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This helps us scale your objectives."
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:paddingHorizontal="16dp"/>
+
+        <!-- step 1 -->
+        <LinearLayout
+            android:id="@+id/containerStep1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="visible"
+            android:padding="16dp"
+            android:background="@drawable/card_background">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feet"
+                    android:textColor="@color/text_gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <NumberPicker
+                    android:id="@+id/npFeet"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
+                    android:theme="@style/Theme.FitnessWarrior"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="'"
+                android:textColor="@color/text_primary"
+                android:textSize="48sp"
+                android:layout_marginEnd="24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inches"
+                    android:textColor="@color/text_gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <NumberPicker
+                    android:id="@+id/npInches"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
+                    android:theme="@style/Theme.FitnessWarrior"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#x2033;"
+                android:textColor="@color/text_primary"
+                android:textSize="48sp"/>
+        </LinearLayout>
+
+        <!-- step 2 -->
+        <LinearLayout
+            android:id="@+id/containerStep2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="24dp"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏋️"
+                android:textSize="64sp"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etWeight"
+                android:layout_width="200dp"
+                android:layout_height="56dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Weight (lbs)"
+                android:textColorHint="#808080"
+                android:textColor="@color/text_dark"
+                android:inputType="number"
+                android:maxLines="1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pounds (lbs)"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- step 3 -->
+        <LinearLayout
+            android:id="@+id/containerStep3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp"
+            android:background="@drawable/card_background">
+
+            <RadioGroup
+                android:id="@+id/rgSex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="  Male"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:buttonTint="@color/brand_yellow"
+                    android:checked="true"
+                    android:padding="8dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="  Female"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:buttonTint="@color/brand_yellow"
+                    android:padding="8dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="  Prefer not to say"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:buttonTint="@color/brand_yellow"
+                    android:padding="8dp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- step 4 -->
+        <LinearLayout
+            android:id="@+id/containerStep4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="24dp"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💪"
+                android:textSize="64sp"
+                android:layout_marginBottom="16dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerGymFreq"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/edit_text_background"
+                android:padding="8dp"
+                android:popupBackground="@color/card_background"/>
+        </LinearLayout>
+
+        <!-- step 5 -->
+        <LinearLayout
+            android:id="@+id/containerStep5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="24dp"
+            android:background="@drawable/card_background">
+
+            <CheckBox
+                android:id="@+id/cbNone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  No limitations"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:buttonTint="@color/brand_yellow"
+                android:checked="true"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etLimitations"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Describe any limitations (e.g., amputee, bad knee, shoulder injury, wheelchair user...)"
+                android:textColorHint="#808080"
+                android:textColor="@color/text_dark"
+                android:inputType="textMultiLine"
+                android:gravity="top|start"
+                android:padding="12dp"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <!-- spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- nav buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="← BACK"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/SecondaryButton"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="NEXT →"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                style="@style/PrimaryButton"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

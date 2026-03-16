@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Class"
+            android:textColor="@color/text_gold"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- warrior -->
+        <Button
+            android:id="@+id/btnWarrior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="⚔️ WARRIOR — High strength and defense"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- mage -->
+        <Button
+            android:id="@+id/btnMage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="🔮 MAGE — Powerful magic attacks"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ninja -->
+        <Button
+            android:id="@+id/btnNinja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="🥷 NINJA — High agility and critical hits"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- paladin -->
+        <Button
+            android:id="@+id/btnPaladin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="🛡️ PALADIN — Holy knight with healing"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ranger -->
+        <Button
+            android:id="@+id/btnRanger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="🏹 RANGER — Skilled archer with range"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- monk -->
+        <Button
+            android:id="@+id/btnMonk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:text="👊 MONK — Martial arts master"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            style="@style/PrimaryButton"/>
+
+    </LinearLayout>
+</ScrollView>

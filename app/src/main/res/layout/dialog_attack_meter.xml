@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <!-- title text showing which attack was chosen -->
+    <TextView
+        android:id="@+id/tvAttackName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ATTACK!"
+        android:textColor="#FFD700"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- instruction text -->
+    <TextView
+        android:id="@+id/tvInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap STOP to time your attack!"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- the attack meter bar -->
+    <com.fitnesswarrior.ui.AttackMeterView
+        android:id="@+id/attackMeterView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- stop button -->
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:text="STOP!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#00BCD4"
+        android:layout_marginBottom="8dp" />
+
+    <!-- result text shown after stopping -->
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:layout_marginTop="8dp" />
+
+    <!-- damage multiplier shown after stopping -->
+    <TextView
+        android:id="@+id/tvMultiplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#AAAAAA"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp" />
+
+</LinearLayout>
